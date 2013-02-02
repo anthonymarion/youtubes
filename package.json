@@ -1,0 +1,17 @@
+{
+  "name": "Youtubes",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "coffee app"
+  },
+  "dependencies": {
+    "express": "3.0.0rc4",
+    "ejs": "*",
+    "less-middleware": "*",
+    "backbone": "~0.9.10",
+    "underscore": "~1.4.4",
+    "coffee-script": "~1.4.0",
+    "file": "~0.2.1"
+  }
+}

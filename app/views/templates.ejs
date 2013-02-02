@@ -1,0 +1,15 @@
+(function($) {
+	var templates = {
+	<% for(var i = 0; i < templates.length; i++) { %>
+		'<%= templates[i].name %>': <%- templates[i].source %>,
+	<% } %>
+	};
+
+	window.renderTemplate = function(templateName, args) {
+		if (/^_/.test(templateName)) {
+			templateName = 'partials/' + templateName.replace(/^_/, '');
+		}
+
+		return templates[templateName](args).trim();
+	};
+})();
