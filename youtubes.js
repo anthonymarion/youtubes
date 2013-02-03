@@ -1,5 +1,7 @@
+#!/usr/bin/env node
+
 var express = require("express");
-var routes = require("./app/routes/index");
+var routes = require("./app/app.js");
 var http = require("http");
 var path = require("path");
 
@@ -30,7 +32,7 @@ app.configure("development", function() {
 app.get("/", routes.index);
 
 // TODO: Make this route precompiled for production
-app.get("/javascripts/templates.js", routes.templates);
+app.get("/app.js", routes.app);
 
 http.createServer(app).listen(app.get("port"), function() {
 	return console.log("Express server listening on port " + app.get("port"));

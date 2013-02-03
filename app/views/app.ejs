@@ -1,0 +1,23 @@
+(function($) {
+	var Youtubes = window.Youtubes = { };
+
+	// Pre-rendered templates, render function
+	Youtubes.templates = {
+		<% templates.forEach(function(template) { %>
+			'<%= template.name %>': <%- template.source %>,
+		<% }) %>
+	};
+
+	Youtubes.renderTemplate = function(templateName, args) {
+		if (/^_/.test(templateName)) {
+			templateName = 'partials/' + templateName.replace(/^_/, '');
+		}
+
+		return templates[templateName](args).trim();
+	};
+
+	// Now all major backbone parts
+	<% backboneObjects.forEach(function(backboneObject) { %>
+	var <%= backboneObject.name %> = Youtubes.<%= backboneObject.name %> = <%- backboneObject.source %>;
+	<% }) %>
+})();
